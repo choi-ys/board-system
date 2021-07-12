@@ -1,7 +1,10 @@
+apply plugin: "org.springframework.boot"
+apply plugin: "io.spring.dependency-management"
+
 bootJar { enabled = false }
 jar { enabled = true }
 
 dependencies {
-    compile project(':domain-rds')
-    compile project(':domain-redis')
+    compile project(":domain-module:domain-mysql")
+    compile project(":domain-module:domain-redis")
 }
