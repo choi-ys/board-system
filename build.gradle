@@ -129,4 +129,10 @@ subprojects {
         }
     }
 }
+
+configure(subprojects.findAll {it.name != 'core'}) {
+    dependencies {
+        compile project(':core-module')
+    }
+}
 // [END] Root project build.gradle config

@@ -1,2 +1,19 @@
 rootProject.name = 'board-system'
+include 'application'
 
+include 'core-module:common-util'
+
+include 'domain-module'
+include 'domain-module:domain-mysql'
+include 'domain-module:domain-redis'
+include 'domain-module:domain-service'
+include 'domain-module:repositories'
+include 'domain-module:repositories:member'
+include 'domain-module:repositories:post'
+
+include 'in-system-module'
+include 'in-system-module:api-exception-handler'
+include 'in-system-module:authorization-filter'
+include 'in-system-module:client'
+
+include 'independent-module'
