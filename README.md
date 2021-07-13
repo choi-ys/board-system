@@ -71,8 +71,7 @@ System Module Layer 구성 원칙
 
 Package Structure
 ---
-Root
--- 
+
 ```bash
 system
 ├── README.md
