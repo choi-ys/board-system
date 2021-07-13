@@ -26,15 +26,14 @@ System Module Layer 구성 원칙
 > > - 역할이 분명하지 않은 경우 
 > > - 어플리케이션 비지니스를 가지고 있는 경우
 > > - 하위 계층의 여러 모듈을 조합하여 기능을 제공하는 계층
-> > > - EX) 
 
 > ### 내부 모듈 계층
 > > - 시스템 안에서 의미를 가진다.
 > > - 어플리케이션과 도메인의 비지니스와 관계 없다.
 > > > - EX) client : 외부 통신 담당 
-> > >  - 환경별 시스템 Host, Header 관리
-> > >  - 요청, 응답 Spec 관리
-> > >  - 예외 처리 추상화 수준 통일
+> > >   - 환경별 시스템 Host, Header 관리
+> > >   - 요청, 응답 Spec 관리
+> > >   - 예외 처리 추상화 수준 통일
 
 > ### 도메인 모듈 계층
 > > - 어플리케이션의 비지니스와 관계 없다.
@@ -47,8 +46,7 @@ System Module Layer 구성 원칙
 > ### 공통 모듈 계층
 > > - 공통 모듈의 비중이 커지지 않도록 Ttpe, Util 등을 정의한다.
 > > - 공통 모듈을 참조하는 모듈의 미 사용 리소스 할당을 막기 위해 순수 java, kotlin 코드만 작성 하도록 제약을 둔다.
-> > > - EX) 
-> > >   - 날짜 객체 처리를 위한 Util
+> > - 날짜, 문자열 등 객체 처리를 위한 Utility
 
 > ### 독립 모듈 계층
 > > - 시스템과 관련 없이 자체로서 독립적인 역할을 수행 한다.
@@ -77,7 +75,6 @@ system
 ├── README.md
 ├── application
 │   ├── admin-api
-│   │   ├── HELP.md
 │   │   ├── build.gradle
 │   │   └── src
 │   │       ├── main
@@ -97,7 +94,6 @@ system
 │   │                       └── adminapi
 │   │                           └── AdminApiApplicationTests.kt
 │   ├── authorization-api
-│   │   ├── HELP.md
 │   │   ├── build.gradle
 │   │   └── src
 │   │       ├── main
@@ -125,7 +121,6 @@ system
 │   │       └── jar
 │   │           └── MANIFEST.MF
 │   ├── member-api
-│   │   ├── HELP.md
 │   │   ├── build.gradle
 │   │   └── src
 │   │       ├── main
@@ -145,7 +140,6 @@ system
 │   │                       └── memberapi
 │   │                           └── MemberApiApplicationTests.kt
 │   └── post-api
-│       ├── HELP.md
 │       ├── build.gradle
 │       └── src
 │           ├── main
@@ -167,7 +161,6 @@ system
 ├── build.gradle
 ├── core-module
 │   └── common-util
-│       ├── HELP.md
 │       ├── build.gradle
 │       └── src
 │           ├── main
@@ -186,7 +179,6 @@ system
 │                               └── CommonUtilApplicationTests.kt
 ├── domain-module
 │   ├── domain-mysql
-│   │   ├── HELP.md
 │   │   ├── build.gradle
 │   │   └── src
 │   │       ├── main
@@ -204,7 +196,6 @@ system
 │   │                       └── domainmysql
 │   │                           └── DomainMysqlApplicationTests.kt
 │   ├── domain-redis
-│   │   ├── HELP.md
 │   │   ├── build.gradle
 │   │   └── src
 │   │       ├── main
@@ -222,7 +213,6 @@ system
 │   │                       └── domainredis
 │   │                           └── DomainRedisApplicationTests.kt
 │   ├── domain-service
-│   │   ├── HELP.md
 │   │   ├── build.gradle
 │   │   └── src
 │   │       ├── main
@@ -241,7 +231,6 @@ system
 │   │                           └── DomainServiceApplicationTests.kt
 │   └── repositories
 │       ├── member
-│       │   ├── HELP.md
 │       │   ├── build.gradle
 │       │   └── src
 │       │       ├── main
@@ -259,7 +248,6 @@ system
 │       │                       └── member
 │       │                           └── MemberApplicationTests.kt
 │       └── post
-│           ├── HELP.md
 │           ├── build.gradle
 │           └── src
 │               ├── main
@@ -285,7 +273,6 @@ system
 ├── gradlew.bat
 ├── in-system-module
 │   ├── api-exception-handler
-│   │   ├── HELP.md
 │   │   ├── build.gradle
 │   │   └── src
 │   │       ├── main
@@ -303,7 +290,6 @@ system
 │   │                       └── apiexceptionhandler
 │   │                           └── ApiExceptionHandlerApplicationTests.kt
 │   ├── authorization-filter
-│   │   ├── HELP.md
 │   │   ├── build.gradle
 │   │   └── src
 │   │       ├── main
@@ -321,7 +307,6 @@ system
 │   │                       └── authorizationfilter
 │   │                           └── AuthorizationFilterApplicationTests.kt
 │   └── client
-│       ├── HELP.md
 │       ├── build.gradle
 │       ├── client.iml
 │       └── src
