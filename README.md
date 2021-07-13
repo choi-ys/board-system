@@ -66,3 +66,284 @@ System Module Layer 구성 원칙
  - 각 모듈이 갖는 책임과 역할이 명확하여 리펙토링, 기능 변경 시 영향 범위 파악 용이
  - 경계가 명확해짐으로써 기능 제공 범위의 예측이 가능하며 스파케티 코드 발생 가능성 저하
  - 역할과 책임에 대한 애매함이 없어짐으로써 어떤 모듈에서 어느정도 까지를 개발해야 할지 명확
+
+---
+
+Package Structure
+---
+Root
+-- 
+```bash
+system
+├── README.md
+├── application
+│   ├── admin-api
+│   │   ├── HELP.md
+│   │   ├── build.gradle
+│   │   └── src
+│   │       ├── main
+│   │       │   ├── kotlin
+│   │       │   │   └── io
+│   │       │   │       └── board
+│   │       │   │           └── adminapi
+│   │       │   │               └── AdminApiApplication.kt
+│   │       │   └── resources
+│   │       │       ├── application.properties
+│   │       │       ├── static
+│   │       │       └── templates
+│   │       └── test
+│   │           └── kotlin
+│   │               └── io
+│   │                   └── board
+│   │                       └── adminapi
+│   │                           └── AdminApiApplicationTests.kt
+│   ├── authorization-api
+│   │   ├── HELP.md
+│   │   ├── build.gradle
+│   │   └── src
+│   │       ├── main
+│   │       │   ├── kotlin
+│   │       │   │   └── io
+│   │       │   │       └── board
+│   │       │   │           └── authorizationapi
+│   │       │   │               └── AuthorizationApiApplication.kt
+│   │       │   └── resources
+│   │       │       ├── application.properties
+│   │       │       ├── static
+│   │       │       └── templates
+│   │       └── test
+│   │           └── kotlin
+│   │               └── io
+│   │                   └── board
+│   │                       └── authorizationapi
+│   │                           └── AuthorizationApiApplicationTests.kt
+│   ├── build
+│   │   ├── kotlin
+│   │   │   └── applicationjar-classes.txt
+│   │   ├── libs
+│   │   │   └── application.jar
+│   │   └── tmp
+│   │       └── jar
+│   │           └── MANIFEST.MF
+│   ├── member-api
+│   │   ├── HELP.md
+│   │   ├── build.gradle
+│   │   └── src
+│   │       ├── main
+│   │       │   ├── kotlin
+│   │       │   │   └── io
+│   │       │   │       └── board
+│   │       │   │           └── memberapi
+│   │       │   │               └── MemberApiApplication.kt
+│   │       │   └── resources
+│   │       │       ├── application.properties
+│   │       │       ├── static
+│   │       │       └── templates
+│   │       └── test
+│   │           └── kotlin
+│   │               └── io
+│   │                   └── board
+│   │                       └── memberapi
+│   │                           └── MemberApiApplicationTests.kt
+│   └── post-api
+│       ├── HELP.md
+│       ├── build.gradle
+│       └── src
+│           ├── main
+│           │   ├── kotlin
+│           │   │   └── io
+│           │   │       └── board
+│           │   │           └── postapi
+│           │   │               └── PostApiApplication.kt
+│           │   └── resources
+│           │       ├── application.properties
+│           │       ├── static
+│           │       └── templates
+│           └── test
+│               └── kotlin
+│                   └── io
+│                       └── board
+│                           └── postapi
+│                               └── PostApiApplicationTests.kt
+├── build.gradle
+├── core-module
+│   └── common-util
+│       ├── HELP.md
+│       ├── build.gradle
+│       └── src
+│           ├── main
+│           │   ├── kotlin
+│           │   │   └── io
+│           │   │       └── board
+│           │   │           └── commonutil
+│           │   │               └── CommonUtilApplication.kt
+│           │   └── resources
+│           │       └── application.properties
+│           └── test
+│               └── kotlin
+│                   └── io
+│                       └── board
+│                           └── commonutil
+│                               └── CommonUtilApplicationTests.kt
+├── domain-module
+│   ├── domain-mysql
+│   │   ├── HELP.md
+│   │   ├── build.gradle
+│   │   └── src
+│   │       ├── main
+│   │       │   ├── kotlin
+│   │       │   │   └── io
+│   │       │   │       └── board
+│   │       │   │           └── domainmysql
+│   │       │   │               └── DomainMysqlApplication.kt
+│   │       │   └── resources
+│   │       │       └── application.properties
+│   │       └── test
+│   │           └── kotlin
+│   │               └── io
+│   │                   └── board
+│   │                       └── domainmysql
+│   │                           └── DomainMysqlApplicationTests.kt
+│   ├── domain-redis
+│   │   ├── HELP.md
+│   │   ├── build.gradle
+│   │   └── src
+│   │       ├── main
+│   │       │   ├── kotlin
+│   │       │   │   └── io
+│   │       │   │       └── board
+│   │       │   │           └── domainredis
+│   │       │   │               └── DomainRedisApplication.kt
+│   │       │   └── resources
+│   │       │       └── application.properties
+│   │       └── test
+│   │           └── kotlin
+│   │               └── io
+│   │                   └── board
+│   │                       └── domainredis
+│   │                           └── DomainRedisApplicationTests.kt
+│   ├── domain-service
+│   │   ├── HELP.md
+│   │   ├── build.gradle
+│   │   └── src
+│   │       ├── main
+│   │       │   ├── kotlin
+│   │       │   │   └── io
+│   │       │   │       └── board
+│   │       │   │           └── domainservice
+│   │       │   │               └── DomainServiceApplication.kt
+│   │       │   └── resources
+│   │       │       └── application.properties
+│   │       └── test
+│   │           └── kotlin
+│   │               └── io
+│   │                   └── board
+│   │                       └── domainservice
+│   │                           └── DomainServiceApplicationTests.kt
+│   └── repositories
+│       ├── member
+│       │   ├── HELP.md
+│       │   ├── build.gradle
+│       │   └── src
+│       │       ├── main
+│       │       │   ├── kotlin
+│       │       │   │   └── io
+│       │       │   │       └── board
+│       │       │   │           └── member
+│       │       │   │               └── MemberApplication.kt
+│       │       │   └── resources
+│       │       │       └── application.properties
+│       │       └── test
+│       │           └── kotlin
+│       │               └── io
+│       │                   └── board
+│       │                       └── member
+│       │                           └── MemberApplicationTests.kt
+│       └── post
+│           ├── HELP.md
+│           ├── build.gradle
+│           └── src
+│               ├── main
+│               │   ├── kotlin
+│               │   │   └── io
+│               │   │       └── board
+│               │   │           └── post
+│               │   │               └── PostApplication.kt
+│               │   └── resources
+│               │       └── application.properties
+│               └── test
+│                   └── kotlin
+│                       └── io
+│                           └── board
+│                               └── post
+│                                   └── PostApplicationTests.kt
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+├── in-system-module
+│   ├── api-exception-handler
+│   │   ├── HELP.md
+│   │   ├── build.gradle
+│   │   └── src
+│   │       ├── main
+│   │       │   ├── kotlin
+│   │       │   │   └── io
+│   │       │   │       └── board
+│   │       │   │           └── apiexceptionhandler
+│   │       │   │               └── ApiExceptionHandlerApplication.kt
+│   │       │   └── resources
+│   │       │       └── application.properties
+│   │       └── test
+│   │           └── kotlin
+│   │               └── io
+│   │                   └── board
+│   │                       └── apiexceptionhandler
+│   │                           └── ApiExceptionHandlerApplicationTests.kt
+│   ├── authorization-filter
+│   │   ├── HELP.md
+│   │   ├── build.gradle
+│   │   └── src
+│   │       ├── main
+│   │       │   ├── kotlin
+│   │       │   │   └── io
+│   │       │   │       └── board
+│   │       │   │           └── authorizationfilter
+│   │       │   │               └── AuthorizationFilterApplication.kt
+│   │       │   └── resources
+│   │       │       └── application.properties
+│   │       └── test
+│   │           └── kotlin
+│   │               └── io
+│   │                   └── board
+│   │                       └── authorizationfilter
+│   │                           └── AuthorizationFilterApplicationTests.kt
+│   └── client
+│       ├── HELP.md
+│       ├── build.gradle
+│       ├── client.iml
+│       └── src
+│           ├── main
+│           │   ├── kotlin
+│           │   │   └── io
+│           │   │       └── board
+│           │   │           └── client
+│           │   │               └── ClientApplication.kt
+│           │   └── resources
+│           │       ├── application.properties
+│           │       ├── static
+│           │       └── templates
+│           └── test
+│               └── kotlin
+│                   └── io
+│                       └── board
+│                           └── client
+│                               └── ClientApplicationTests.kt
+├── independent-module
+├── settings.gradle
+
+
+```
